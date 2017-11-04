@@ -15,7 +15,7 @@ public class SegurancaNegocio implements InterfaceNegocio {
 		if(this.usuario.estaAutorizado("SegurancaNegocio", "executarTransacao")) {
 			encapsulado.executarTransacao();
 		} else {
-			throw new RuntimeException("Não autorizado");
+			lancarException();
 		}
 	}
 
@@ -24,8 +24,12 @@ public class SegurancaNegocio implements InterfaceNegocio {
 		if(this.usuario.estaAutorizado("SegurancaNegocio", "cancelarTransacao")) {
 			encapsulado.cancelarTransacao();
 		} else {
-			throw new RuntimeException("Não autorizado");
+			lancarException();
 		}
+	}
+
+	private void lancarException() {
+		throw new RuntimeException("O usuario " +this.usuario.getNome() +" não está autorizado");
 	}
 
 }

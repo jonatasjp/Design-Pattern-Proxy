@@ -14,17 +14,22 @@ public class Usuario {
 	}
 
 	public void autorizaAcesso(String classe, String metodo) {
-		this.autorizados.add(classe+":"+metodo);
+		this.autorizados.add(classe + ":" + metodo);
 	}
-	
+
 	public void removerAcesso(String classe, String metodo) {
-		String permissao = classe+":"+metodo;
-		if(this.autorizados.contains(permissao)) {
+		String permissao = classe + ":" + metodo;
+		if (this.autorizados.contains(permissao)) {
 			this.autorizados.remove(permissao);
 		}
 	}
-	
+
 	public boolean estaAutorizado(String classe, String metodo) {
-		return this.autorizados.contains(classe+":"+metodo);
+		return this.autorizados.contains(classe + ":" + metodo);
 	}
+
+	public String getNome() {
+		return nome;
+	}
+
 }
