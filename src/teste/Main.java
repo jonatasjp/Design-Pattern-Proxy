@@ -20,9 +20,15 @@ public class Main {
 		//instanciando o proxy e informando o objeto a ser encapsulado e o usuario
 		InterfaceNegocio interfaceNegocio = new SegurancaNegocio(mock, usuario);
 		
+		//FALSE
+		System.out.println(mock.isFoiAcessado());
+		
 		//Deve passar pois tem a autorização para usar os método
 		interfaceNegocio.executarTransacao();
 		interfaceNegocio.cancelarTransacao();
+		
+		//TRUE
+		System.out.println(mock.isFoiAcessado());
 		
 		//Removendo a permissao de cancelarTransacao
 		usuario.removerAcesso("SegurancaNegocio", "cancelarTransacao");
