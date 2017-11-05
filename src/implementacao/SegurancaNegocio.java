@@ -9,7 +9,7 @@ public class SegurancaNegocio implements InterfaceNegocio {
 		this.encapsulado = encapsulado;
 		this.usuario = usuario;
 	}
-
+	
 	@Override
 	public void executarTransacao() {
 		if(this.usuario.estaAutorizado("SegurancaNegocio", "executarTransacao")) {
