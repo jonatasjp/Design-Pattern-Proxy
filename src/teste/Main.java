@@ -4,6 +4,7 @@ import implementacao.InterfaceNegocio;
 import implementacao.NegocioMock;
 import implementacao.SegurancaNegocio;
 import implementacao.Usuario;
+import implementacao.ValidacaoNegocio;
 
 public class Main {
 	
@@ -18,7 +19,8 @@ public class Main {
 		NegocioMock mock = new NegocioMock();
 		
 		//instanciando o proxy e informando o objeto a ser encapsulado e o usuario
-		InterfaceNegocio interfaceNegocio = new SegurancaNegocio(mock, usuario);
+		InterfaceNegocio interfaceNegocio = 
+				new SegurancaNegocio(new ValidacaoNegocio(mock, usuario), usuario);
 		
 		//FALSE
 		System.out.println(mock.isFoiAcessado());
